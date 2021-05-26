@@ -1,13 +1,13 @@
 package com.gudong.dbmbackground.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gudong.dbm.entity.ProductType;
-import com.gudong.dbm.service.IProductService;
 import com.gudong.dbm.service.IProductTypeService;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +29,12 @@ public class ProductTypeController {
     public List<ProductType> list(){
         List<ProductType> list = productService.list();
         return list;
+    }
+
+    @GetMapping("page/{num}/{size}")
+    public PageInfo<ProductType> list(@PathVariable("num")Integer num, @PathVariable("size") Integer size){
+        PageInfo<ProductType> pageInfo = productService.page(num,size);
+        return pageInfo;
     }
 
 }

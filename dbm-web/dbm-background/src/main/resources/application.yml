@@ -1,0 +1,19 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /
+dubbo:
+  protocol:
+    name: dubbo
+  application:
+    name: dbm-background
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+  monitor:
+    protocol: registry
+  consumer:
+    timeout: 2000
+pagehelper:
+  dialect: mysql
+  reasonable: true
