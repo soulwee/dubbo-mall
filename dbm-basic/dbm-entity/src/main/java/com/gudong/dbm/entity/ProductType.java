@@ -1,6 +1,8 @@
 package com.gudong.dbm.entity;
 
-public class ProductType {
+import java.io.Serializable;
+
+public class ProductType implements Serializable {
     private Long id;
 
     private Long pid;

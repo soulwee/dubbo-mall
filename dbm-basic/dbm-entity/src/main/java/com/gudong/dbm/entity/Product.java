@@ -1,8 +1,9 @@
 package com.gudong.dbm.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Product {
+public class Product implements Serializable {
     private Long id;
 
     private String name;
@@ -26,6 +27,8 @@ public class Product {
     private Long createUser;
 
     private Long updateUser;
+
+    private Long typeId;
 
     public Long getId() {
         return id;
@@ -121,5 +124,13 @@ public class Product {
 
     public void setUpdateUser(Long updateUser) {
         this.updateUser = updateUser;
+    }
+
+    public Long getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Long typeId) {
+        this.typeId = typeId;
     }
 }

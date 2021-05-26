@@ -1,9 +1,11 @@
 package com.gudong.dbm.base;
 
+import java.util.List;
+
 /**
- * @Description
- * @Author gudong
- * @Date 2021-05-25 15:24
+ * @description
+ * @author gudong
+ * @date 2021-05-25 15:24
  */
 public interface IBaseService<T> {
     int deleteByPrimaryKey(Integer id);
@@ -17,4 +19,6 @@ public interface IBaseService<T> {
     int updateByPrimaryKeySelective(T t);
 
     int updateByPrimaryKey(T t);
+
+    List<T> list();
 }

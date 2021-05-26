@@ -18,6 +18,21 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>com.gudong</groupId>
+			<artifactId>dbm-product-api</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.gudong</groupId>
+			<artifactId>dbm-mapper</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.boot</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+			<version>0.2.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>

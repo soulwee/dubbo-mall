@@ -1,9 +1,11 @@
 package com.gudong.dbm.base;
 
+import java.util.List;
+
 /**
- * @Description
- * @Author gudong
- * @Date 2021-05-25 15:28
+ * @description
+ * @author gudong
+ * @date 2021-05-25 15:28
  */
 public abstract class BaseServiceImpl<T> implements IBaseService<T>{
 
@@ -31,5 +33,9 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T>{
 
     public int updateByPrimaryKey(T t) {
         return getBaseDao().updateByPrimaryKey(t);
+    }
+
+    public List<T> list() {
+        return getBaseDao().list();
     }
 }

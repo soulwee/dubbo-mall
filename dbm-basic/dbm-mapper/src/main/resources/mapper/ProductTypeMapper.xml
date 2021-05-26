@@ -9,6 +9,10 @@
   <sql id="Base_Column_List">
     id, pid, name
   </sql>
+  <select id="list" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from t_product_type
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

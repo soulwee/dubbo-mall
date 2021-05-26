@@ -1,0 +1,20 @@
+spring:
+  #数据库连接配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/dubbo_mall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20880
+  application:
+    name: dbm-product-service
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+  monitor:
+    protocol: registry
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

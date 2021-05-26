@@ -1,6 +1,8 @@
 package com.gudong.dbm.entity;
 
-public class ProductDesc {
+import java.io.Serializable;
+
+public class ProductDesc implements Serializable {
     private Long id;
 
     private Long productId;

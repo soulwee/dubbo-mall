@@ -7,6 +7,17 @@
     <groupId>com.gudong</groupId>
     <artifactId>dbm-product-api</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.gudong</groupId>
+            <artifactId>dbm-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gudong</groupId>
+            <artifactId>dbm-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
