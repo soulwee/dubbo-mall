@@ -17,3 +17,7 @@ dubbo:
 pagehelper:
   dialect: mysql
   reasonable: true
+
+spring:
+  thymeleaf:
+    cache: false

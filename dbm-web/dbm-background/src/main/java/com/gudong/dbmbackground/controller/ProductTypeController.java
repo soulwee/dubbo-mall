@@ -1,7 +1,6 @@
 package com.gudong.dbmbackground.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gudong.dbm.entity.ProductType;
 import com.gudong.dbm.service.IProductTypeService;
@@ -23,17 +22,17 @@ import java.util.List;
 public class ProductTypeController {
 
     @Reference
-    IProductTypeService productService;
+    IProductTypeService productTypeService;
 
     @GetMapping("list")
     public List<ProductType> list(){
-        List<ProductType> list = productService.list();
+        List<ProductType> list = productTypeService.list();
         return list;
     }
 
     @GetMapping("page/{num}/{size}")
     public PageInfo<ProductType> list(@PathVariable("num")Integer num, @PathVariable("size") Integer size){
-        PageInfo<ProductType> pageInfo = productService.page(num,size);
+        PageInfo<ProductType> pageInfo = productTypeService.page(num,size);
         return pageInfo;
     }
 

@@ -1,5 +1,5 @@
 spring:
-  #Êı¾İ¿âÁ¬½ÓÅäÖÃ
+  # é…ç½®æ•°æ®æº
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/dubbo_mall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
@@ -16,13 +16,15 @@ dubbo:
     protocol: zookeeper
   monitor:
     protocol: registry
+  consumer:
+    check: false
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-#·ÖÒ³ºÏÀí»¯²ÎÊı£¬Ä¬ÈÏÖµÎªfalse¡£µ±¸Ã²ÎÊıÉèÖÃÎª true Ê±£¬pageNum<=0 Ê±»á²éÑ¯µÚÒ»Ò³£¬
-#pageNum>pages£¨³¬¹ı×ÜÊıÊ±£©£¬»á²éÑ¯×îºóÒ»Ò³¡£Ä¬ÈÏfalse Ê±£¬Ö±½Ó¸ù¾İ²ÎÊı½øĞĞ²éÑ¯¡£
+#åˆ†é¡µåˆç†åŒ–å‚æ•°ï¼Œé»˜è®¤å€¼ä¸ºfalseã€‚å½“è¯¥å‚æ•°è®¾ç½®ä¸º true æ—¶ï¼ŒpageNum<=0 æ—¶ä¼šæŸ¥è¯¢ç¬¬ä¸€é¡µï¼Œ
+#pageNum>pagesï¼ˆè¶…è¿‡æ€»æ•°æ—¶ï¼‰ï¼Œä¼šæŸ¥è¯¢æœ€åä¸€é¡µã€‚é»˜è®¤false æ—¶ï¼Œç›´æ¥æ ¹æ®å‚æ•°è¿›è¡ŒæŸ¥è¯¢ã€‚
 pagehelper:
   reasonable: true
   helper-dialect: mysql

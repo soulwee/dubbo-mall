@@ -16,3 +16,6 @@ dubbo整合，添加提供者，消费者
 
 `mybatis:
   mapper-locations: classpath:mapper/*.xml`
+  
+- ctrl+F9 重新编译
+- alt+shift 鼠标多个光标 

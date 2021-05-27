@@ -32,4 +32,12 @@ public class ProductDesc implements Serializable {
     public void setpDesc(String pDesc) {
         this.pDesc = pDesc == null ? null : pDesc.trim();
     }
+
+    public ProductDesc() {
+    }
+
+    public ProductDesc(Long productId, String pDesc) {
+        this.productId = productId;
+        this.pDesc = pDesc;
+    }
 }

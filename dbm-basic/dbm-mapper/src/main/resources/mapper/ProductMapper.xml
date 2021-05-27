@@ -15,11 +15,16 @@
     <result column="create_user" jdbcType="BIGINT" property="createUser" />
     <result column="update_user" jdbcType="BIGINT" property="updateUser" />
     <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, price, sale_price, sale_point, image, stock, flag, create_time, update_time, 
     create_user, update_user, type_id
   </sql>
+  <select id="list" resultMap="BaseResultMap">
+    select p.id id,t.name type_name,p.name name,sale_price,sale_point,image
+     from t_product p,t_product_type t where p.type_id =t.id
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -42,7 +47,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, 
       #{typeId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.gudong.dbm.entity.Product">
+  <insert id="insertSelective" parameterType="com.gudong.dbm.entity.Product" keyProperty="id" useGeneratedKeys="true">
     insert into t_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

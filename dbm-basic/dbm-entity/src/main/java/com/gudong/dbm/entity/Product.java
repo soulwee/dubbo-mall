@@ -30,6 +30,8 @@ public class Product implements Serializable {
 
     private Long typeId;
 
+    private String typeName;
+
     public Long getId() {
         return id;
     }
@@ -132,5 +134,33 @@ public class Product implements Serializable {
 
     public void setTypeId(Long typeId) {
         this.typeId = typeId;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", salePrice=" + salePrice +
+                ", salePoint='" + salePoint + '\'' +
+                ", image='" + image + '\'' +
+                ", stock=" + stock +
+                ", flag=" + flag +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createUser=" + createUser +
+                ", updateUser=" + updateUser +
+                ", typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                '}';
     }
 }
