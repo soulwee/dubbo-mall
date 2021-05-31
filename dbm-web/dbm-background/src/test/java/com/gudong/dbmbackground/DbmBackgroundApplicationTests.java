@@ -23,7 +23,7 @@ class DbmBackgroundApplicationTests {
 	//测试删除图片
 	@Test
 	void delete() {
-		fastFileStorageClient.deleteFile("/M00/00/00/wKgFDGCxBnCAV2xTAABdrZgsqUU690_big.jpg");
+		fastFileStorageClient.deleteFile("group2/M00/00/00/wKgFDGCxBnCAV2xTAABdrZgsqUU690_big.jpg");
 		System.out.println("deleted successfully!!!");
 	}
 

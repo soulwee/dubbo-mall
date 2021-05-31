@@ -46,7 +46,7 @@ public class ProductController {
     public String add(ProductVo vo){
         System.out.println(vo);
         productService.add(vo);
-        return "redirect:/product/page/1/2";
+        return "redirect:/product/page/1/5";
     }
 
 }
