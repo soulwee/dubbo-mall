@@ -15,6 +15,12 @@ dubbo:
   consumer:
     timeout: 2000
     check: false
+spring:
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 5MB
 pagehelper:
   dialect: mysql
   reasonable: true
@@ -29,9 +35,4 @@ fdfs:
   tracker-list: 192.168.5.12:22122
 file:
   upload-url: http://192.168.5.12:8888/
-spring:
-  servlet:
-    multipart:
-      max-file-size: 5MB
-  thymeleaf:
-    cache: false
+

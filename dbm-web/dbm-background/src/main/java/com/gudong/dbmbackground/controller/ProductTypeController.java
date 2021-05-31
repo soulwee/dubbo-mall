@@ -2,6 +2,7 @@ package com.gudong.dbmbackground.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import com.google.gson.Gson;
 import com.gudong.dbm.entity.ProductType;
 import com.gudong.dbm.service.IProductTypeService;
 
@@ -25,9 +26,12 @@ public class ProductTypeController {
     IProductTypeService productTypeService;
 
     @GetMapping("list")
-    public List<ProductType> list(){
+    public String list(String callback){
+        System.out.println("call="+callback);
         List<ProductType> list = productTypeService.list();
-        return list;
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return callback+"("+json+")";
     }
 
     @GetMapping("page/{num}/{size}")
