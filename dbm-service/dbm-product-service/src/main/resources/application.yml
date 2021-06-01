@@ -16,8 +16,7 @@ dubbo:
     protocol: zookeeper
   monitor:
     protocol: registry
-  consumer:
-    check: false
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:

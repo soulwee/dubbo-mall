@@ -1,0 +1,20 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /
+dubbo:
+  protocol:
+    name: dubbo
+  application:
+    name: dbm-search
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+  monitor:
+    protocol: registry
+  consumer:
+    timeout: 2000
+    check: false
+spring:
+  thymeleaf:
+    cache: false

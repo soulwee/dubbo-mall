@@ -22,7 +22,7 @@
     create_user, update_user, type_id
   </sql>
   <select id="list" resultMap="BaseResultMap">
-    select p.id id,t.name type_name,p.name name,sale_price,sale_point,image
+    select p.id id,t.name type_name,p.name name,price,sale_price,sale_point,image
      from t_product p,t_product_type t where p.type_id =t.id
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">

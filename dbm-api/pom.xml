@@ -6,7 +6,11 @@
 
     <groupId>com.gudong</groupId>
     <artifactId>dbm-api</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>dbm-search-api</module>
+    </modules>
 
 
 </project>

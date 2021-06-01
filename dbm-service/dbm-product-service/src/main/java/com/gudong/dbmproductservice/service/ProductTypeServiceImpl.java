@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Component
 @Service
-public class ProductTypeService extends BaseServiceImpl<ProductType> implements IProductTypeService {
+public class ProductTypeServiceImpl extends BaseServiceImpl<ProductType> implements IProductTypeService {
 
     @Autowired
     ProductTypeMapper productTypeMapper;

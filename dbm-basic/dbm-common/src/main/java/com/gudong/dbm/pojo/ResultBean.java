@@ -14,8 +14,8 @@ import java.io.Serializable;
  */
 @Data
 @AllArgsConstructor
-public class ResultBean implements Serializable {
-    private Object data;
+public class ResultBean<T> implements Serializable {
+    private T data;
     private String msg;
     private Integer code;
 
@@ -24,12 +24,17 @@ public class ResultBean implements Serializable {
         this.code = 200;
     }
 
-    public ResultBean ok(Object data){
+    public ResultBean(Integer code, String msg) {
+        this.msg = msg;
+        this.code = code;
+    }
+
+    public ResultBean<T> ok(T data) {
         this.data = data;
         return this;
     }
 
-    public ResultBean error(String msg){
+    public ResultBean<T> error(String msg) {
         this.msg = msg;
         this.code = 500;
         return this;
