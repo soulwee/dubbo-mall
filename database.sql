@@ -43,3 +43,6 @@ insert into t_product values(1,'戴尔电脑',3000,5000,'好','img/xx.png',200,1
 insert into t_product values(2,'海信电视机',3000,5000,'好','img/xx.png',200,1,SYSDATE(),SYSDATE(),1,1,2);
 insert into t_product values(3,'海尔冰箱',3000,5000,'好','img/xx.png',200,1,SYSDATE(),SYSDATE(),1,1,3);
 insert into t_product values(4,'小米手机',3000,5000,'好','img/xx.png',200,1,SYSDATE(),SYSDATE(),1,1,6);
+
+--修改产品name长度
+ALTER TABLE t_product MODIFY COLUMN name varchar (110);

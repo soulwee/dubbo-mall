@@ -26,14 +26,17 @@ class DbmSearchServiceApplicationTests {
 		//solr里面操作的记录，document
 		SolrInputDocument document = new SolrInputDocument();
 		//需要有唯一标识 添加或修改
-		document.setField("id", "11");
-		document.setField("product_name", "小米");
-		document.setField("product_price", "999");
-		document.setField("product_sale_point", "小米666");
+		document.setField("id", "12");
+		document.setField("product_name", "华为手机");
+		document.setField("product_price", "1999");
+		document.setField("product_sale_point", "华为666");
 		document.setField("product_images", "暂无");
 		//提交
-		solrClient.add(document);
-		solrClient.commit();
+		//solrClient.add(document);
+		//solrClient.commit();
+		//提交到collection2
+		solrClient.add("collection2",document);
+		solrClient.commit("collection2");
 	}
 
 	@Test

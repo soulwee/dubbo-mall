@@ -3,7 +3,9 @@ package com.gudong.dbmbackground.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
 import com.gudong.dbm.entity.Product;
+import com.gudong.dbm.service.IItemService;
 import com.gudong.dbm.service.IProductService;
+import com.gudong.dbm.service.ISearchService;
 import com.gudong.dbm.vo.ProductVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,12 @@ public class ProductController {
     @Reference
     IProductService productService;
 
+    @Reference
+    ISearchService searchService;
+
+    @Reference
+    IItemService itemService;
+
     @GetMapping("list")
     public String list(Model model){
         List<Product> list = productService.list();
@@ -45,7 +53,10 @@ public class ProductController {
     @PostMapping("add")
     public String add(ProductVo vo){
         System.out.println(vo);
-        productService.add(vo);
+        Long id = productService.add(vo);
+        System.out.println("pid:"+id);
+        searchService.updateById(id);
+        itemService.createHtmlById(id);
         return "redirect:/product/page/1/5";
     }
 

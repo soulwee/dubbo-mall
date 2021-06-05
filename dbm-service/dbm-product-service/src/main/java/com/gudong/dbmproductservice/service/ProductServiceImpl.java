@@ -45,7 +45,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements IPro
     }
 
     @Override
-    public void add(ProductVo vo) {
+    public Long add(ProductVo vo) {
         Product prod = vo.getProd();
         prod.setFlag(true);
         prod.setCreateTime(new Date());
@@ -55,5 +55,6 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements IPro
         productMapper.insertSelective(prod);
         ProductDesc desc = new ProductDesc(vo.getProd().getId(),vo.getDesc());
         productDescMapper.insertSelective(desc);
+        return vo.getProd().getId();
     }
 }

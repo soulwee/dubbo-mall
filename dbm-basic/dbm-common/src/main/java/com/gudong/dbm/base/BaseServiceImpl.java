@@ -11,7 +11,7 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T>{
 
     public abstract IBaseDao<T> getBaseDao();
 
-    public int deleteByPrimaryKey(Integer id) {
+    public int deleteByPrimaryKey(Long id) {
         return getBaseDao().deleteByPrimaryKey(id);
     }
 
@@ -23,7 +23,7 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T>{
         return getBaseDao().insertSelective(t);
     }
 
-    public T selectByPrimaryKey(Integer id) {
+    public T selectByPrimaryKey(Long id) {
         return getBaseDao().selectByPrimaryKey(id);
     }
 

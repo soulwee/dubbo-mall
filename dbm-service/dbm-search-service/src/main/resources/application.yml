@@ -1,5 +1,4 @@
 spring:
-  # \u914D\u7F6E\u6570\u636E\u6E90
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/dubbo_mall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
@@ -11,7 +10,7 @@ spring:
 dubbo:
   protocol:
     name: dubbo
-    port: 20880
+    port: 20881
   application:
     name: dbm-search-service
   registry:
@@ -19,10 +18,10 @@ dubbo:
     protocol: zookeeper
   monitor:
     protocol: registry
-
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
+server:
+  port: 8081
 

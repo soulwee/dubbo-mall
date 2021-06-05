@@ -17,5 +17,5 @@ public interface IProductService extends IBaseService<Product> {
 
     PageInfo<Product> page(Integer num, Integer size);
 
-    void add(ProductVo vo);
+    Long add(ProductVo vo);
 }

@@ -1,7 +1,6 @@
 package com.gudong.dbmsearchservice.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.github.pagehelper.PageInfo;
 import com.gudong.dbm.entity.Product;
 import com.gudong.dbm.mapper.ProductMapper;
 import com.gudong.dbm.pojo.PageResultBean;
@@ -41,19 +40,8 @@ public class SearchServiceImpl implements ISearchService {
     public ResultBean initAllData() {
         List<Product> list = productMapper.list();
         for (Product pro : list) {
-            SolrInputDocument document = new SolrInputDocument();
-            //需要有唯一标识 添加或修改
-            document.setField("id", pro.getId());
-            document.setField("product_name", pro.getName());
-            document.setField("product_price", pro.getPrice());
-            document.setField("product_sale_point", pro.getSalePoint());
-            document.setField("product_images", pro.getImage());
-            //提交
-            try {
-                solrClient.add(document);
-            } catch (SolrServerException | IOException e) {
-                e.printStackTrace();
-                return new ResultBean(500,"同步数据失败！");
+            if (pushSolr(pro)) {
+                return new ResultBean(500, "同步数据失败！");
             }
         }
         try {
@@ -150,7 +138,39 @@ public class SearchServiceImpl implements ISearchService {
         page.setPages((int) (page.getTotal()%size==0?page.getTotal()/size:(page.getTotal()/size)+1));
         return page;
     }
-    //PageInfo<Product> pageInfo = new PageInfo<>(list, 3);
+
+    @Override
+    public ResultBean updateById(Long id) {
+        Product pro = productMapper.selectByPrimaryKey(id);
+        if (pushSolr(pro)) {
+            return new ResultBean(500, "同步数据失败！");
+        }
+        try {
+            solrClient.commit();
+        } catch (SolrServerException  | IOException e) {
+            e.printStackTrace();
+            return new ResultBean(500,"同步数据失败！");
+        }
+        return new ResultBean();
+    }
+
+    private boolean pushSolr(Product pro) {
+        SolrInputDocument document = new SolrInputDocument();
+        //需要有唯一标识 添加或修改
+        document.setField("id", pro.getId());
+        document.setField("product_name", pro.getName());
+        document.setField("product_price", pro.getPrice());
+        document.setField("product_sale_point", pro.getSalePoint());
+        document.setField("product_images", pro.getImage());
+        //提交
+        try {
+            solrClient.add(document);
+        } catch (SolrServerException | IOException e) {
+            e.printStackTrace();
+            return true;
+        }
+        return false;
+    }
 
 
 }

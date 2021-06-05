@@ -20,4 +20,6 @@ public interface ISearchService {
     ResultBean<List<Product>> searchByKeywords(String keyword);
 
     PageResultBean<Product> searchByKeywords(String keyword, Integer index, Integer size);
+
+    ResultBean updateById(Long id);
 }
