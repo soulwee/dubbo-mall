@@ -143,6 +143,7 @@ public class SearchServiceImpl implements ISearchService {
     public ResultBean updateById(Long id) {
         Product pro = productMapper.selectByPrimaryKey(id);
         if (pushSolr(pro)) {
+            System.out.println("同步数据失败");
             return new ResultBean(500, "同步数据失败！");
         }
         try {

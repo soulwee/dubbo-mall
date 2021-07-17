@@ -14,8 +14,8 @@ dubbo:
   registry:
     address: 127.0.0.1:2181
     protocol: zookeeper
-  monitor:
-    protocol: registry
+#  monitor:
+#    protocol: registry
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:

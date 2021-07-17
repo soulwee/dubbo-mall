@@ -7,6 +7,12 @@ spring:
   data:
     solr:
       host: http://192.168.5.121:8080/solr
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: java2021717
+    password: abc123
+    virtual-host: /java2021
 dubbo:
   protocol:
     name: dubbo

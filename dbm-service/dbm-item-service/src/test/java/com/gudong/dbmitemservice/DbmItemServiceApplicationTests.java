@@ -27,7 +27,7 @@ class DbmItemServiceApplicationTests {
 	@Test
 	void createHTMLTest() throws IOException, TemplateException {
 		List<Long> ids = new ArrayList<>();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 1; i <= 20; i++) {
 			ids.add((long) i);
 		}
 

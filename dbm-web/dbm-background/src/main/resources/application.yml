@@ -10,8 +10,9 @@ dubbo:
   registry:
     address: 127.0.0.1:2181
     protocol: zookeeper
-  monitor:
-    protocol: registry
+#表示从注册中心发现监控中心地址，否则直连监控中心，没有启动监控中心的话就注释掉
+#  monitor:
+#    protocol: registry
   consumer:
     timeout: 2000
     check: false
@@ -21,6 +22,12 @@ spring:
   servlet:
     multipart:
       max-file-size: 5MB
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: java2021717
+    password: abc123
+    virtual-host: /java2021
 pagehelper:
   dialect: mysql
   reasonable: true

@@ -2,11 +2,14 @@ package com.gudong.dbmbackground.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.github.pagehelper.PageInfo;
+import com.gudong.dbm.constant.RabbitMQConstant;
 import com.gudong.dbm.entity.Product;
 import com.gudong.dbm.service.IItemService;
 import com.gudong.dbm.service.IProductService;
 import com.gudong.dbm.service.ISearchService;
 import com.gudong.dbm.vo.ProductVo;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +30,8 @@ public class ProductController {
 
     @Reference
     IProductService productService;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
 
     @Reference
     ISearchService searchService;
@@ -55,8 +60,11 @@ public class ProductController {
         System.out.println(vo);
         Long id = productService.add(vo);
         System.out.println("pid:"+id);
-        searchService.updateById(id);
-        itemService.createHtmlById(id);
+        //发送消息到交换机，搜索服务接收消息在solr添加关键字，item服务接收消息生成静态商品详情页面  解耦
+        rabbitTemplate.convertAndSend(RabbitMQConstant.BACKGROUND_EXCHANGE, "product.add",id);
+
+      /*  searchService.updateById(id);
+        itemService.createHtmlById(id);*/
         return "redirect:/product/page/1/5";
     }
 
